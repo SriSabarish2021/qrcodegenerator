@@ -37,8 +37,7 @@ const Imput = ({newimg,classnewimg,img}) => {
             <div className='buttons'>
                 <button className='btn1' type='button' onClick={()=>{curval&&getimg?getting()
                 :alert("please entet the field")}}>Get QR</button>
-                <a href = {img}
-                    Download = "test_image">
+                <a href = {img} download>
                     <button className='btn2' type='button' >Get Image</button>
                 </a>
             </div>
