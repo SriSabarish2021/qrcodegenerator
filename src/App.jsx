@@ -14,7 +14,8 @@ function App() {
       <Titimg img={img} 
       classimg={classimg}/>
       <Imput newimg={newimg}
-      classnewimg={classnewimg}/>
+      classnewimg={classnewimg}
+      img={img}/>
       <Number/>
     </>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './imput.css'
 import { useEffect } from 'react'
-const Imput = ({newimg,classnewimg}) => {
+const Imput = ({newimg,classnewimg,img}) => {
     const [curval,changeval]=useState('')
     const [getimg,changeimg]=useState('')
     const [load,isloading]=useState(true)
@@ -37,7 +37,7 @@ const Imput = ({newimg,classnewimg}) => {
             <div className='buttons'>
                 <button className='btn1' type='button' onClick={()=>{curval&&getimg?getting()
                 :alert("please entet the field")}}>Get QR</button>
-                <a href = {fetching}
+                <a href = {img}
                     Download = "test_image">
                     <button className='btn2' type='button' >Get Image</button>
                 </a>
