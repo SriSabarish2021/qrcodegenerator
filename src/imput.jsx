@@ -1,21 +1,30 @@
 import React, { useState } from 'react'
 import './imput.css'
+import { useEffect } from 'react'
 const Imput = ({newimg,classnewimg}) => {
     const [curval,changeval]=useState('')
     const [getimg,changeimg]=useState('')
+    const [load,isloading]=useState(true)
 
     async function getting(){
         try{
-            const fetching=`https://api.qrserver.com/v1/create-qr-code/?size=${getimg}x${getimg}&data=${curval}`
+            isloading(true)
+            const fetching= `https://api.qrserver.com/v1/create-qr-code/?size=${getimg}x${getimg}&data=${curval}`
             newimg(fetching)
+        }
+        catch(err){
+            console.log(err);
+            
         }
         finally{
             classnewimg("display")
+            isloading(false)
         }
     }
-
+    
   return (
     <>
+
         <div className='input'>
             <div className='oneinp'>
                 <label htmlFor="url">Data for QR code</label>
@@ -28,7 +37,7 @@ const Imput = ({newimg,classnewimg}) => {
             <div className='buttons'>
                 <button className='btn1' type='button' onClick={()=>{curval&&getimg?getting()
                 :alert("please entet the field")}}>Get QR</button>
-                <a href = "images/qr-code.png"
+                <a href = {fetching}
                     Download = "test_image">
                     <button className='btn2' type='button' >Get Image</button>
                 </a>
